@@ -1,6 +1,9 @@
 import model.Provider;
+import vo.Vacancy;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Controller {
 
@@ -18,5 +21,13 @@ public class Controller {
         return "Controller{" +
                 "providers=" + Arrays.toString(providers) +
                 '}';
+    }
+
+    public void scan() {
+        List<Vacancy> vacancies = new ArrayList<>();
+        for (Provider provider : providers) {
+           vacancies.addAll(provider.getJavaVacancies("Town"));
+        }
+        System.out.println(vacancies.size());
     }
 }
