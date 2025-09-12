@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.Objects;
+
 public class Vacancy {
     private String title;
     private String salary;
@@ -54,5 +56,24 @@ public class Vacancy {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vacancy vacancy = (Vacancy) o;
+        return Objects.equals(title, vacancy.title) && Objects.equals(salary, vacancy.salary) && Objects.equals(city, vacancy.city) && Objects.equals(companyName, vacancy.companyName) && Objects.equals(siteName, vacancy.siteName) && Objects.equals(url, vacancy.url);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(title);
+        result = 31 * result + Objects.hashCode(salary);
+        result = 31 * result + Objects.hashCode(city);
+        result = 31 * result + Objects.hashCode(companyName);
+        result = 31 * result + Objects.hashCode(siteName);
+        result = 31 * result + Objects.hashCode(url);
+        return result;
     }
 }
