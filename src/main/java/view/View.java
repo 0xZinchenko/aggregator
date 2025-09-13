@@ -4,8 +4,6 @@ package view;
 import controller.Controller;
 import vo.Vacancy;
 
-
-
 import java.util.List;
 
 public interface View {
