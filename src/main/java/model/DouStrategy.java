@@ -8,6 +8,8 @@ import vo.Vacancy;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +60,14 @@ public class DouStrategy implements Strategy {
     }
 
     protected Document getDocument(String searchString) throws IOException {
-        String url = String.format(URL_FORMAT, searchString);
+        String cityParam = searchString == null || searchString.isEmpty() ? "" : searchString;
+
+        String url;
+        if (cityParam.isEmpty()) {
+            url = "https://jobs.dou.ua/vacancies/?search=Java";
+        } else {
+            url = String.format("https://jobs.dou.ua/vacancies/?city=%s&search=Java", cityParam);
+        }
         Document doc = Jsoup.connect(url)
                 .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
                 .referrer("https://www.google.com/")
