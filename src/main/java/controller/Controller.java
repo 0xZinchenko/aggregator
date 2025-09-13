@@ -1,3 +1,5 @@
+package controller;
+
 import model.Provider;
 import vo.Vacancy;
 
@@ -18,7 +20,7 @@ public class Controller {
 
     @Override
     public String toString() {
-        return "Controller{" +
+        return "controller.Controller{" +
                 "providers=" + Arrays.toString(providers) +
                 '}';
     }

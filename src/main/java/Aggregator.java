@@ -1,3 +1,4 @@
+import controller.Controller;
 import model.DouStrategy;
 import model.Provider;
 
