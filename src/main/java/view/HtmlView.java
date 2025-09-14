@@ -4,7 +4,7 @@ import controller.Controller;
 import vo.Vacancy;
 
 
-
+import java.io.*;
 import java.util.List;
 
 public class HtmlView implements View {
@@ -34,7 +34,11 @@ public class HtmlView implements View {
         return "";
     }
 
-    private void updateFile(String file) {
-
+    private void updateFile(String content) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(content);
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
     }
 }
