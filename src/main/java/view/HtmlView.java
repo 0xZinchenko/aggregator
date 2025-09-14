@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import org.jsoup.nodes.Document;
 import vo.Vacancy;
 
 
@@ -40,5 +41,10 @@ public class HtmlView implements View {
         } catch (IOException e) {
            e.printStackTrace();
         }
+    }
+
+    protected Document getDocument() throws IOException {
+
+        return null;
     }
 }
