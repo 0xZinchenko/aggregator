@@ -61,7 +61,6 @@ public class DouStrategy implements Strategy {
 
     protected Document getDocument(String searchString) throws IOException {
         String cityParam = searchString == null || searchString.isEmpty() ? "" : searchString;
-
         String url;
         if (cityParam.isEmpty()) {
             url = "https://jobs.dou.ua/vacancies/?search=Java";
